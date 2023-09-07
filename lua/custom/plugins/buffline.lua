@@ -9,7 +9,12 @@ return {
 	{
 		'akinsho/bufferline.nvim',
 		config = function()
-			require("bufferline").setup {}
+			require("bufferline").setup {
+				options = {
+					-- separator_style = "slope"
+
+				}
+			}
 		end,
 		dependencies = 'nvim-tree/nvim-web-devicons'
 	}
