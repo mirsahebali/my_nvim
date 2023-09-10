@@ -16,7 +16,8 @@ return {
 								cpp = "/home/mirsahebali/notes/cpp",
 								go = "/home/mirsahebali/notes/go",
 								fun = "/home/mirsahebali/notes/fun",
-								winx = "/home/mirsahebali/notes/winx"
+								winx = "/home/mirsahebali/notes/winx",
+								sd = "/home/mirsahebali/notes/systems_design"
 							},
 						},
 					},

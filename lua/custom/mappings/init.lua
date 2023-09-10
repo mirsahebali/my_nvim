@@ -9,6 +9,7 @@ vim.keymap.set({ "n", "v" }, "<C-l>", "<C-w>l", { desc = "Move window right" })
 vim.keymap.set({ "n", "v" }, "<C-h>", "<C-w>h", { desc = "Move window left" })
 -- Escape mode with double jj
 vim.keymap.set("i", "jj", "<Esc>", { desc = "esc" })
+
 -- Tmux Vim Navigation
 vim.keymap.set('n', "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Navigator Left" })
 vim.keymap.set('n', "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Navigator Right" })

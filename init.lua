@@ -42,7 +42,6 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -142,34 +141,17 @@ require('lazy').setup({
   --   end,
   -- },
   {
-    "catppuccin/nvim",
-    config = function()
-      vim.cmd.colorscheme 'catppuccin'
-    end,
-    lazy = false,
-    -- priority = 1000,
-    name = "catppuccin",
-  }
-  ,
-  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
     },
-  },
-
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
   },
   {
     -- Add indentation guides even on blank lines
@@ -551,12 +533,10 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  cssls = {},
+  cssls = { filetypes = { 'css', 'scss' } },
   tailwindcss = {},
   emmet_ls = {},
-  -- prettier = {},
   prismals = {},
-  -- rustywind = {},
   eslint = {},
   lua_ls = {
     Lua = {
@@ -572,6 +552,8 @@ require('neodev').setup()
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -590,6 +572,26 @@ mason_lspconfig.setup_handlers {
     }
   end
 }
+-- Lsp hover diagnostics styling
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    -- Use a sharp border with `FloatBorder` highlights
+    border = "rounded",
+    -- add the title in hover float window
+    title = "hover"
+  }
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    -- Use a sharp border with `FloatBorder` highlights
+    border = "rounded",
+  }
+)
+vim.diagnostic.config {
+  float = { border = "rounded" },
+}
+
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
