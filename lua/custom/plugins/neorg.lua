@@ -17,7 +17,8 @@ return {
 								go = "/home/mirsahebali/notes/go",
 								fun = "/home/mirsahebali/notes/fun",
 								winx = "/home/mirsahebali/notes/winx",
-								sd = "/home/mirsahebali/notes/systems_design"
+								sd = "/home/mirsahebali/notes/systems_design",
+								maths = "/home/mirsahebali/notes/maths"
 							},
 						},
 					},

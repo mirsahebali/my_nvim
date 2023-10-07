@@ -98,9 +98,8 @@ require('lazy').setup({
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline"
-      ,
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
 
@@ -190,37 +189,39 @@ require('lazy').setup({
 
   {
     -- Highlight, edit, and navigate code
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-treesitter/nvim-treesitter',
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'nvim-treesitter/nvim-treesitter-textobjects',
       -- HACK: remove when https://github.com/windwp/nvim-ts-autotag/issues/125 closed.
-      { "windwp/nvim-ts-autotag", opts = { autotag = { enable_close_on_slash = false } } },
+      { 'windwp/nvim-ts-autotag', opts = { autotag = { enable_close_on_slash = false } } },
     },
-    event = "User AstroFile",
+    event = 'User AstroFile',
     cmd = {
-      "TSBufDisable",
-      "TSBufEnable",
-      "TSBufToggle",
-      "TSDisable",
-      "TSEnable",
-      "TSToggle",
-      "TSInstall",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSModuleInfo",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync",
+      'TSBufDisable',
+      'TSBufEnable',
+      'TSBufToggle',
+      'TSDisable',
+      'TSEnable',
+      'TSToggle',
+      'TSInstall',
+      'TSInstallInfo',
+      'TSInstallSync',
+      'TSModuleInfo',
+      'TSUninstall',
+      'TSUpdate',
+      'TSUpdateSync',
     },
-    build = ":TSUpdate",
+    build = ':TSUpdate',
     opts = function()
       return {
         autotag = { enable = true },
         context_commentstring = { enable = true, enable_autocmd = false },
         highlight = {
           enable = true,
-          disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
+          disable = function(_, bufnr)
+            return vim.b[bufnr].large_buf
+          end,
         },
         pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
 
@@ -231,55 +232,55 @@ require('lazy').setup({
             enable = true,
             lookahead = true,
             keymaps = {
-              ["ak"] = { query = "@block.outer", desc = "around block" },
-              ["ik"] = { query = "@block.inner", desc = "inside block" },
-              ["ac"] = { query = "@class.outer", desc = "around class" },
-              ["ic"] = { query = "@class.inner", desc = "inside class" },
-              ["a?"] = { query = "@conditional.outer", desc = "around conditional" },
-              ["i?"] = { query = "@conditional.inner", desc = "inside conditional" },
-              ["af"] = { query = "@function.outer", desc = "around function " },
-              ["if"] = { query = "@function.inner", desc = "inside function " },
-              ["al"] = { query = "@loop.outer", desc = "around loop" },
-              ["il"] = { query = "@loop.inner", desc = "inside loop" },
-              ["aa"] = { query = "@parameter.outer", desc = "around argument" },
-              ["ia"] = { query = "@parameter.inner", desc = "inside argument" },
+              ['ak'] = { query = '@block.outer', desc = 'around block' },
+              ['ik'] = { query = '@block.inner', desc = 'inside block' },
+              ['ac'] = { query = '@class.outer', desc = 'around class' },
+              ['ic'] = { query = '@class.inner', desc = 'inside class' },
+              ['a?'] = { query = '@conditional.outer', desc = 'around conditional' },
+              ['i?'] = { query = '@conditional.inner', desc = 'inside conditional' },
+              ['af'] = { query = '@function.outer', desc = 'around function ' },
+              ['if'] = { query = '@function.inner', desc = 'inside function ' },
+              ['al'] = { query = '@loop.outer', desc = 'around loop' },
+              ['il'] = { query = '@loop.inner', desc = 'inside loop' },
+              ['aa'] = { query = '@parameter.outer', desc = 'around argument' },
+              ['ia'] = { query = '@parameter.inner', desc = 'inside argument' },
             },
           },
           move = {
             enable = true,
             set_jumps = true,
             goto_next_start = {
-              ["]k"] = { query = "@block.outer", desc = "Next block start" },
-              ["]f"] = { query = "@function.outer", desc = "Next function start" },
-              ["]a"] = { query = "@parameter.inner", desc = "Next argument start" },
+              [']k'] = { query = '@block.outer', desc = 'Next block start' },
+              [']f'] = { query = '@function.outer', desc = 'Next function start' },
+              [']a'] = { query = '@parameter.inner', desc = 'Next argument start' },
             },
             goto_next_end = {
-              ["]K"] = { query = "@block.outer", desc = "Next block end" },
-              ["]F"] = { query = "@function.outer", desc = "Next function end" },
-              ["]A"] = { query = "@parameter.inner", desc = "Next argument end" },
+              [']K'] = { query = '@block.outer', desc = 'Next block end' },
+              [']F'] = { query = '@function.outer', desc = 'Next function end' },
+              [']A'] = { query = '@parameter.inner', desc = 'Next argument end' },
             },
             goto_previous_start = {
-              ["[k"] = { query = "@block.outer", desc = "Previous block start" },
-              ["[f"] = { query = "@function.outer", desc = "Previous function start" },
-              ["[a"] = { query = "@parameter.inner", desc = "Previous argument start" },
+              ['[k'] = { query = '@block.outer', desc = 'Previous block start' },
+              ['[f'] = { query = '@function.outer', desc = 'Previous function start' },
+              ['[a'] = { query = '@parameter.inner', desc = 'Previous argument start' },
             },
             goto_previous_end = {
-              ["[K"] = { query = "@block.outer", desc = "Previous block end" },
-              ["[F"] = { query = "@function.outer", desc = "Previous function end" },
-              ["[A"] = { query = "@parameter.inner", desc = "Previous argument end" },
+              ['[K'] = { query = '@block.outer', desc = 'Previous block end' },
+              ['[F'] = { query = '@function.outer', desc = 'Previous function end' },
+              ['[A'] = { query = '@parameter.inner', desc = 'Previous argument end' },
             },
           },
           swap = {
             enable = true,
             swap_next = {
-              [">K"] = { query = "@block.outer", desc = "Swap next block" },
-              [">F"] = { query = "@function.outer", desc = "Swap next function" },
-              [">A"] = { query = "@parameter.inner", desc = "Swap next argument" },
+              ['>K'] = { query = '@block.outer', desc = 'Swap next block' },
+              ['>F'] = { query = '@function.outer', desc = 'Swap next function' },
+              ['>A'] = { query = '@parameter.inner', desc = 'Swap next argument' },
             },
             swap_previous = {
-              ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
-              ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
-              ["<A"] = { query = "@parameter.inner", desc = "Swap previous argument" },
+              ['<K'] = { query = '@block.outer', desc = 'Swap previous block' },
+              ['<F'] = { query = '@function.outer', desc = 'Swap previous function' },
+              ['<A'] = { query = '@parameter.inner', desc = 'Swap previous argument' },
             },
           },
         },
@@ -305,8 +306,8 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-require("custom.mappings.init")
-require("custom.plugins.mini")
+require 'custom.mappings.init'
+require 'custom.plugins.mini'
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -369,7 +370,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { "node_modules", "prisma/migrations", },
+    file_ignore_patterns = { 'node_modules', 'prisma/migrations' },
     mappings = {
       i = {
         ['<C-u>'] = true,
@@ -391,7 +392,7 @@ vim.keymap.set('n', '<leader>fb', function()
     winblend = 10,
     previewer = false,
   })
-end, { desc = '[/] Fuzzily search in current buffer' })
+end, { desc = ' [F]uzzily search in current [b]uffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
@@ -399,9 +400,10 @@ vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
-vim.keymap.set('n', '<leader>fF', "<cmd>Telescope find_files hidden=true<cr>", { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fF', '<cmd>Telescope find_files hidden=true<cr>', { desc = '[F]ind [F]iles' })
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
+vim.treesitter.language.register('javascript', 'mdx')
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
@@ -500,7 +502,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<C-M-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -525,10 +527,10 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  jdtls = {},
   java_language_server = {},
   clangd = {},
   gopls = {},
+  jdtls = { filetypes = { 'java' } },
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
@@ -570,28 +572,23 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 -- Lsp hover diagnostics styling
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    -- Use a sharp border with `FloatBorder` highlights
-    border = "rounded",
-    -- add the title in hover float window
-    title = "hover"
-  }
-)
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  -- Use a sharp border with `FloatBorder` highlights
+  border = 'rounded',
+  -- add the title in hover float window
+  title = '',
+})
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    -- Use a sharp border with `FloatBorder` highlights
-    border = "rounded",
-  }
-)
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  -- Use a sharp border with `FloatBorder` highlights
+  border = 'rounded',
+})
 vim.diagnostic.config {
-  float = { border = "rounded" },
+  float = { border = 'rounded' },
 }
-
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -638,17 +635,17 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'path' }
+    { name = 'path' },
   },
 }
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = 'path' },
   }, {
-    { name = 'cmdline' }
-  })
+    { name = 'cmdline' },
+  }),
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
