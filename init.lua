@@ -3,6 +3,14 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.highlight.on_yank({
+
+  timeout = 500,
+  on_macro = true,
+  on_visual = true
+})
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info

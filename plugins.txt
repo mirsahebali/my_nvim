@@ -1,0 +1,18 @@
+   ○ hydra.nvim
+    ○ mini.ai
+    ○ mini.bufremove
+    ○ mini.comment
+    ○ mini.indentscope
+    ○ mini.pairs
+    ○ mini.surround
+    ○ multicursors.nvim
+    ○ neotest
+    ○ neotest-go
+    ○ neotest-rust
+    ○ nvim-lint
+    ○ nvim-notify
+    ○ nvim-treesitter-context
+    ○ todo-comments.nvim
+    ○ tree-sitter-hypr
+    ○ vim-illuminate
+

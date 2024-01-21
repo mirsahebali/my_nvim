@@ -55,5 +55,7 @@ return {
 				end,
 			})
 		end,
-	}
+	},
+	{ 'echasnovski/mini.nvim', version = false },
+
 }
