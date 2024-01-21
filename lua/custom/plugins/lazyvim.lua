@@ -1,0 +1,4 @@
+return {
+
+	"lazyvim/lazyvim",
+}

@@ -32,6 +32,8 @@ require('lazy').setup({
   --       Uncomment any of the lines below to enable them.
   require 'kickstart.plugins.autoformat',
   require 'kickstart.plugins.debug',
+  -- If commented then it's disabled
+  -- require 'kickstart.plugins.codeium',
   { import = 'custom.plugins' },
 }, {})
 -- NOTE: You can change these options as you wish!
@@ -57,7 +59,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 -- Colorscheme setup
-pcall(require("catppuccin").setup({}), "catppuccin")
+-- pcall(require("catppuccin").setup({}), "catppuccin")
 vim.cmd [[colorscheme catppuccin]]
 require("custom.treesitter")
 require("custom.lsp")
