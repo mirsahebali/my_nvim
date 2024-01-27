@@ -54,8 +54,6 @@ local servers = {
 	-- clangd = {},
 	gopls = {},
 	bashls = {},
-	jdtls = { filetypes = { 'java' } },
-	pyright = {},
 	rust_analyzer = {},
 	tsserver = {},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },

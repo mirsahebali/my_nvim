@@ -74,19 +74,7 @@ return {
 	--     vim.cmd.colorscheme 'onedark'
 	--   end,
 	-- },
-	{
-		-- Set lualine as statusline
-		'nvim-lualine/lualine.nvim',
-		-- See `:help lualine.txt`
-		opts = {
-			options = {
-				icons_enabled = true,
-				theme = 'catppuccin',
-				component_separators = '|',
-				section_separators = '',
-			},
-		},
-	},
+
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- "gc" to comment visual regions/lines
 	{ 'numToStr/Comment.nvim',               opts = {} },

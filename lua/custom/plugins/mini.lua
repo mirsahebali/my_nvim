@@ -57,6 +57,26 @@ return {
 		end,
 	},
 	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"<leader>up",
+				function()
+					local Util = require("lazy.core.util")
+					vim.g.minipairs_disable = not vim.g.minipairs_disable
+					if vim.g.minipairs_disable then
+						Util.warn("Disabled auto pairs", { title = "Option" })
+					else
+						Util.info("Enabled auto pairs", { title = "Option" })
+					end
+				end,
+				desc = "Toggle auto pairs",
+			},
+		},
+	},
+	{
 		"echasnovski/mini.surround",
 		keys = function(_, keys)
 			-- Populate the keys based on the user's options
@@ -122,54 +142,12 @@ return {
 				},
 			}
 		end,
-		config = function(_, opts)
-			require("mini.ai").setup(opts)
-			-- register all text objects with which-key
-			require("lazyvim.util").on_load("which-key.nvim", function()
-				---@type table<string, string|table>
-				local i = {
-					[" "] = "Whitespace",
-					['"'] = 'Balanced "',
-					["'"] = "Balanced '",
-					["`"] = "Balanced `",
-					["("] = "Balanced (",
-					[")"] = "Balanced ) including white-space",
-					[">"] = "Balanced > including white-space",
-					["<lt>"] = "Balanced <",
-					["]"] = "Balanced ] including white-space",
-					["["] = "Balanced [",
-					["}"] = "Balanced } including white-space",
-					["{"] = "Balanced {",
-					["?"] = "User Prompt",
-					_ = "Underscore",
-					a = "Argument",
-					b = "Balanced ), ], }",
-					c = "Class",
-					f = "Function",
-					o = "Block, conditional, loop",
-					q = "Quote `, \", '",
-					t = "Tag",
-				}
-				local a = vim.deepcopy(i)
-				for k, v in pairs(a) do
-					a[k] = v:gsub(" including.*", "")
-				end
-
-				local ic = vim.deepcopy(i)
-				local ac = vim.deepcopy(a)
-				for key, name in pairs({ n = "Next", l = "Last" }) do
-					i[key] = vim.tbl_extend("force", { name = "Inside " .. name .. " textobject" },
-						ic)
-					a[key] = vim.tbl_extend("force", { name = "Around " .. name .. " textobject" },
-						ac)
-				end
-				require("which-key").register({
-					mode = { "o", "x" },
-					i = i,
-					a = a,
-				})
-			end)
-		end,
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
+		opts = {
+			enable_autocmd = false,
+		},
 	}
-
 }

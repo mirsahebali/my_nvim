@@ -5,12 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
-vim.highlight.on_yank({
 
-  timeout = 500,
-  on_macro = true,
-  on_visual = true
-})
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -27,11 +22,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.autoformat',
+  -- require 'kickstart.plugins.debug',
   -- If commented then it's disabled
   -- require 'kickstart.plugins.codeium',
   { import = 'custom.plugins' },

@@ -42,8 +42,8 @@ vim.keymap.set(
 )
 
 -- Oil.nvim Keymaps
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
+vim.keymap.set("n", "-", "<CMD>40 vs<CR><CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>.", "<cmd> lua require('oil').open_float()<cr>", { desc = "Open directory" })
 --MultiCursor Mappings
 vim.keymap.set({ "n", "v" }, "<M-,>", "<cmd>MCstart<cr>", { desc = "Start MultiCursor" })
 
@@ -73,9 +73,24 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 vim.keymap.set('n', '<leader>fF', '<cmd>Telescope find_files hidden=true<cr>', { desc = '[F]ind [F]iles' })
 
+vim.keymap.set('n', '<leader>gt', '<cmd>GitBlameToggle<CR>', { desc = "Git Blame Toggle" })
 
+vim.keymap.set('n', '<leader>bd', '<cmd>Bdelete<CR>', { desc = "Delete Buffer" })
 -- Diagnostics mappings
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Motion Mappings
+vim.keymap.set('n', '<M-j>', '<CMD>m +1 <CR>', { desc = "Move line down" })
+vim.keymap.set('n', '<M-k>', '<CMD>m -2 <CR>', { desc = "Move line up" })
+
+
+-- LSP mappings
+
+vim.keymap.set('n', '<leader>lr', '<CMD>Telescope lsp_references <CR>', { desc = "Search LSP References" })
+vim.keymap.set('n', '<leader>ld', '<CMD>Telescope lsp_definitions <CR>', { desc = "Search LSP Definitions" })
+vim.keymap.set('n', '<leader>lt', '<CMD>Telescope lsp_type_definitions <CR>', { desc = "Search LSP Type Definitions" })
+-- Emacs like command mode
+vim.keymap.set({ "n", "i", "v" }, "<M-x>", ":", { desc = "Command Mode" })

@@ -1,5 +1,3 @@
-   ○ hydra.nvim
-    ○ mini.ai
     ○ mini.bufremove
     ○ mini.comment
     ○ mini.indentscope
@@ -15,4 +13,3 @@
     ○ todo-comments.nvim
     ○ tree-sitter-hypr
     ○ vim-illuminate
-

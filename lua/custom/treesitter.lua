@@ -1,14 +1,5 @@
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
-require("lazy").setup({
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		lazy = true,
-		opts = {
-			enable_autocmd = false,
-		},
-	}
-})
 vim.treesitter.language.register('javascript', 'mdx')
 require('nvim-treesitter.configs').setup {
 	-- Add languages to be installed here that you want installed for treesitter
