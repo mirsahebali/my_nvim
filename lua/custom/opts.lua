@@ -33,3 +33,9 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+vim.treesitter.language.register('config', 'json') -- the someft filetype will use the python parser and queries.
+vim.filetype.add({
+	filename = {
+		["config"] = "json5"
+	}
+})

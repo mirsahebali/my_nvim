@@ -54,7 +54,7 @@ local servers = {
 	-- clangd = {},
 	gopls = {},
 	bashls = {},
-	rust_analyzer = {},
+	-- rust_analyzer = {},
 	tsserver = {},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
 	cssls = { filetypes = { 'css', 'scss' } },

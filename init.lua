@@ -27,6 +27,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- If commented then it's disabled
   -- require 'kickstart.plugins.codeium',
+  require "disabled.plugins.rust",
   { import = 'custom.plugins' },
 }, {})
 -- NOTE: You can change these options as you wish!
