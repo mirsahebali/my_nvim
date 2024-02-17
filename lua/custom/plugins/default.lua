@@ -5,7 +5,6 @@ return {
 
 	-- Detect tabstop and shiftwidth automatically
 	'tpope/vim-sleuth',
-
 	-- NOTE: This is where your plugins related to LSP can be installed.
 	--  The configuration is done below. Search for lspconfig to find it below.
 	{
@@ -22,26 +21,22 @@ return {
 			-- Additional lua configuration, makes nvim stuff amazing!
 			'folke/neodev.nvim',
 		},
+	}, {
+	-- Autocompletion
+	'hrsh7th/nvim-cmp',
+	dependencies = {
+		-- Snippet Engine & its associated nvim-cmp source
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-cmdline',
+		-- Adds LSP completion capabilities
+		'hrsh7th/cmp-nvim-lsp',
+
+		-- Adds a number of user-friendly snippets
+		'rafamadriz/friendly-snippets',
 	},
-
-	{
-		-- Autocompletion
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			-- Snippet Engine & its associated nvim-cmp source
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-cmdline',
-			-- Adds LSP completion capabilities
-			'hrsh7th/cmp-nvim-lsp',
-
-			-- Adds a number of user-friendly snippets
-			'rafamadriz/friendly-snippets',
-		},
-	},
-
-	-- Useful plugin to show you pending keybinds.
+}, -- Useful plugin to show you pending keybinds.
 	{ 'folke/which-key.nvim',                opts = {} },
 	{
 		-- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -64,21 +59,9 @@ return {
 					{ buffer = bufnr, desc = '[P]review [H]unk' })
 			end,
 		},
-	},
-
-	-- {
-	--   -- Theme inspired by Atom
-	--   'navarasu/onedark.nvim',
-	--   -- priority = 1000,
-	--   config = function()
-	--     vim.cmd.colorscheme 'onedark'
-	--   end,
-	-- },
-
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	}, { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- "gc" to comment visual regions/lines
 	{ 'numToStr/Comment.nvim',               opts = {} },
-
 	-- Fuzzy Finder (files, lsp, etc)
 	{
 		'nvim-telescope/telescope.nvim',
@@ -199,5 +182,5 @@ return {
 				},
 			}
 		end,
-		-- config = require "plugins.configs.nvim-treesitter",
+		-- config = require "treesitter",
 	}, }

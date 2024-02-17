@@ -21,7 +21,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigat
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigator Up" })
 -- Toggle term with nvim terminal
 vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<cmd>ToggleTerm direction=float <cr>", { desc = "ToggleTerm" })
-vim.keymap.set({ "n", "t", "v" }, "<M-\\>", "<cmd>ToggleTerm direction=vertical size=38<cr>", { desc = "ToggleTerm" })
+vim.keymap.set({ "n", "t", "v" }, "<M-\\>", "<cmd>ToggleTerm direction=vertical size=58<cr>", { desc = "ToggleTerm" })
 vim.keymap.set({ "n", "t" }, "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "LSP Format" })
 -- require("custom.mappings.mini")
 -- Buffline Mappings
@@ -83,14 +83,24 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Motion Mappings
-vim.keymap.set('n', '<M-j>', '<CMD>m +1 <CR>', { desc = "Move line down" })
-vim.keymap.set('n', '<M-k>', '<CMD>m -2 <CR>', { desc = "Move line up" })
 
+
+vim.keymap.set('n', '<M-j>', '<CMD>m +1 <CR>', { desc = "Move line down" })
+vim.o.ttimeoutlen = 50
+vim.keymap.set({ 'i' }, 'jk', '<ESC>', { desc = "Go to normal mode" })
+vim.keymap.set({ 'i' }, 'JK', '<ESC>', { desc = "Go to normal mode" })
+vim.keymap.set('n', '<M-k>', '<CMD>m -2 <CR>', { desc = "Move line up" })
+vim.keymap.set('i', '<C-e>', '<ESC>$a', { desc = "Move to end of line in insert" })
+vim.keymap.set('i', '<C-a>', '<ESC>_i', { desc = "Move to start of line in insert" })
 
 -- LSP mappings
 
+vim.keymap.set('n', '<leader>ca', '<CMD>lua vim.lsp.buf.code_action()<CR>', { desc = "Code Action" })
+vim.keymap.set('n', '<leader>cr', '<CMD>lua vim.lsp.buf.rename()<CR>', { desc = "Rename Variable" })
 vim.keymap.set('n', '<leader>lr', '<CMD>Telescope lsp_references <CR>', { desc = "Search LSP References" })
 vim.keymap.set('n', '<leader>ld', '<CMD>Telescope lsp_definitions <CR>', { desc = "Search LSP Definitions" })
 vim.keymap.set('n', '<leader>lt', '<CMD>Telescope lsp_type_definitions <CR>', { desc = "Search LSP Type Definitions" })
+vim.keymap.set('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', { desc = "LSP Go to definition" })
+
 -- Emacs like command mode
 vim.keymap.set({ "n", "i", "v" }, "<M-x>", ":", { desc = "Command Mode" })

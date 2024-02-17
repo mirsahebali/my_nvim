@@ -1,4 +1,0 @@
-    ○ multicursors.nvim
-    ○ nvim-treesitter-context
-    ○ tree-sitter-hypr
-    ○ vim-illuminate

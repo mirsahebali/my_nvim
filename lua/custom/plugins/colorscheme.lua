@@ -14,7 +14,7 @@ return {
 					base = "#222429",
 				},
 			},
-			transparent_background = false,
+			transparent_background = true,
 			integrations = {
 				alpha = true,
 				cmp = true,
@@ -36,9 +36,7 @@ return {
 				},
 				navic = { enabled = true, custom_bg = "lualine" },
 				neotest = true,
-				noice = true,
 				notify = true,
-				neotree = true,
 				semantic_tokens = true,
 				telescope = true,
 				treesitter = true,
