@@ -32,9 +32,9 @@ local on_attach = function(_, bufnr)
 	nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 	nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
 	nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-	nmap('<leader>wl', function()
+	nmap('<leader>wg', function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, '[W]orkspace [L]ist Folders')
+	end, '[W]orkspace [G]et Folders')
 
 	-- Create a command `:Format` local to the LSP buffer
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -109,4 +109,22 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
 })
 vim.diagnostic.config {
 	float = { border = 'rounded' },
+}
+
+require('lspconfig').rust_analyzer.setup {
+	-- Other Configs ...
+	settings = {
+		["rust-analyzer"] = {
+			-- Other Settings ...
+			procMacro = {
+				ignored = {
+					leptos_macro = {
+						-- optional: --
+						"component",
+						"server",
+					},
+				},
+			},
+		},
+	}
 }

@@ -19,6 +19,11 @@ vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Navigat
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Navigator Right" })
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigator Down" })
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigator Up" })
+
+vim.keymap.set("n", "<leader>wh", "<cmd>TmuxNavigateLeft<cr>", { desc = "Tmux Navigator Left" })
+vim.keymap.set("n", "<leader>wl", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux Navigator Right" })
+vim.keymap.set("n", "<leader>wj", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigator Down" })
+vim.keymap.set("n", "<leader>wk", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigator Up" })
 -- Toggle term with nvim terminal
 vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<cmd>ToggleTerm direction=float <cr>", { desc = "ToggleTerm" })
 vim.keymap.set({ "n", "t", "v" }, "<M-\\>", "<cmd>ToggleTerm direction=vertical size=58<cr>", { desc = "ToggleTerm" })
