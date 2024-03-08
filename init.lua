@@ -27,7 +27,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- If commented then it's disabled
   -- require 'kickstart.plugins.codeium',
-  require "disabled.plugins.rust",
+  -- require "disabled.plugins.rust",
   { import = 'custom.plugins' },
 }, {})
 -- NOTE: You can change these options as you wish!
@@ -58,4 +58,7 @@ vim.cmd [[colorscheme catppuccin]]
 require("custom.treesitter")
 require("custom.lsp")
 
+vim.cmd([[
+set rtp^="/home/mirsahebali/.opam/cs3110-2024sp/share/ocp-indent/vim"
+]])
 -- vim: ts=2 sts=2 sw=2 et

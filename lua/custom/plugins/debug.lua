@@ -10,7 +10,6 @@ return { {
   {
     'mfussenegger/nvim-dap',
     dependencies = {
-
       'theHamsta/nvim-dap-virtual-text',
       'rcarriga/nvim-dap-ui',
       'williamboman/mason.nvim',
@@ -37,6 +36,7 @@ return { {
         ensure_installed = {
           -- Update this to ensure that you have the debuggers for the langs you want
           'delve',
+          'codelldb'
         },
       }
 
