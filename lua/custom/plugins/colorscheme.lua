@@ -14,7 +14,7 @@ return {
 					base = "#222429",
 				},
 			},
-			transparent_background = true,
+			transparent_background = false,
 			integrations = {
 				alpha = true,
 				cmp = true,

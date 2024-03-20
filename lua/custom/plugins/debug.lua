@@ -21,7 +21,11 @@ return { {
     config = function()
       local dap = require 'dap'
       local dapui = require 'dapui'
-
+      dap.adapters.lldb = {
+        type = "executable",
+        command = "/usr/bin/lldb-vscode", -- adjust as needed
+        name = "lldb",
+      }
       require('mason-nvim-dap').setup {
         -- Makes a best effort to setup the various debuggers with
         -- reasonable debug configurations

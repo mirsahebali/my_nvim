@@ -106,6 +106,9 @@ vim.keymap.set('n', '<leader>lr', '<CMD>Telescope lsp_references <CR>', { desc =
 vim.keymap.set('n', '<leader>ld', '<CMD>Telescope lsp_definitions <CR>', { desc = "Search LSP Definitions" })
 vim.keymap.set('n', '<leader>lt', '<CMD>Telescope lsp_type_definitions <CR>', { desc = "Search LSP Type Definitions" })
 vim.keymap.set('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', { desc = "LSP Go to definition" })
+vim.keymap.set('n', '<C-c>', '<ESC>', { desc = "ESC" })
 
 -- Emacs like command mode
 vim.keymap.set({ "n", "i", "v" }, "<M-x>", ":", { desc = "Command Mode" })
+
+vim.keymap.set({ "n", "i", "v" }, "<M-!>", ":!", { desc = "Command Mode" })
