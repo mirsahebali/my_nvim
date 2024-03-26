@@ -1,4 +1,4 @@
-return {
+return { {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
@@ -13,8 +13,13 @@ return {
 					"node_modules",
 					"target"
 				}
+			},
+			extentions = {
+				theme = "ivy",
+				hijack_netrw = true,
 			}
 		})
+		require("telescope").load_extension "file_browser"
 		return {
 			mappings = {
 				["<C-n>"] = actions.cycle_history_next,
@@ -25,4 +30,10 @@ return {
 			n = { q = actions.close },
 		}
 	end
+},
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	}
+
 }

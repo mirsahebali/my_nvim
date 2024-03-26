@@ -52,13 +52,24 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
 	-- clangd = {},
-	gopls = {},
+	gopls = {
+		completeUnimported = true,
+		usePlaceholders = true,
+		assignVariableTypes = true,
+		compositeLiteralFields = true,
+		constantValues = true,
+		parameterNames = true,
+		rangeVariableTypes = true,
+		analyses = {
+			unusedparams = true,
+		},
+	},
 	bashls = {},
 	-- rust_analyzer = {},
 	tsserver = {},
 	html = { filetypes = { 'html', 'twig', 'hbs' } },
 	cssls = { filetypes = { 'css', 'scss' } },
-	tailwindcss = {},
+	-- tailwindcss = {},
 	emmet_ls = {},
 	eslint = {},
 	lua_ls = {

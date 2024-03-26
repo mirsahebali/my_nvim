@@ -4,9 +4,7 @@
 -- Command window
 vim.keymap.set({ "n", "v" }, "cw", "q:", { desc = "Command Window" })
 
-vim.keymap.set({ "n", "v" }, "K", function()
-	require("pretty_hover").hover()
-end, { desc = "Command Window" })
+vim.keymap.set({ "n", "v" }, "K", function() vim.lsp.buf.hover() end, { desc = "Command Window" })
 -- window Navigation remaps--
 vim.keymap.set({ "n", "v", "t" }, "<C-j>", "<C-w>j", { desc = "Move window down" })
 vim.keymap.set({ "n", "v", "t" }, "<C-k>", "<C-w>k", { desc = "Move window up" })
@@ -25,8 +23,10 @@ vim.keymap.set("n", "<leader>wl", "<cmd>TmuxNavigateRight<cr>", { desc = "Tmux N
 vim.keymap.set("n", "<leader>wj", "<cmd>TmuxNavigateDown<cr>", { desc = "Tmux Navigator Down" })
 vim.keymap.set("n", "<leader>wk", "<cmd>TmuxNavigateUp<cr>", { desc = "Tmux Navigator Up" })
 -- Toggle term with nvim terminal
-vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<cmd>ToggleTerm direction=float <cr>", { desc = "ToggleTerm" })
-vim.keymap.set({ "n", "t", "v" }, "<M-\\>", "<cmd>ToggleTerm direction=vertical size=58<cr>", { desc = "ToggleTerm" })
+-- vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<cmd>ToggleTerm direction=float <cr>", { desc = "ToggleTerm" })
+vim.keymap.set({ "n", "t", "v" }, "<leader>tt", "<cmd>ToggleTerm direction=horizontal size=10<cr>",
+	{ desc = "ToggleTerm" })
+-- Buffer file
 vim.keymap.set({ "n", "t" }, "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", { desc = "LSP Format" })
 -- require("custom.mappings.mini")
 -- Buffline Mappings
@@ -63,13 +63,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>fb', function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-		winblend = 10,
-		previewer = false,
-	})
-end, { desc = ' [F]uzzily search in current [b]uffer' })
+vim.keymap.set('n', '<leader>fb', ":Telescope file_browser<cr>", { desc = 'Telescope file browser' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
@@ -85,7 +79,7 @@ vim.keymap.set('n', '<leader>bd', '<cmd>Bdelete<CR>', { desc = "Delete Buffer" }
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>q', ":q<cr>", { desc = 'Close or exit' })
 
 -- Motion Mappings
 
@@ -112,3 +106,7 @@ vim.keymap.set('n', '<C-c>', '<ESC>', { desc = "ESC" })
 vim.keymap.set({ "n", "i", "v" }, "<M-x>", ":", { desc = "Command Mode" })
 
 vim.keymap.set({ "n", "i", "v" }, "<M-!>", ":!", { desc = "Command Mode" })
+
+
+-- File bindings
+vim.keymap.set({ "n" }, "<leader>fo", ":keepalt edit ./", { desc = "Open File or Create file in current dir" })
