@@ -18,4 +18,6 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
 
+vim.cmd([[set iskeyword-=_]])
+
 -- vim: ts=2 sts=2 sw=2 et
