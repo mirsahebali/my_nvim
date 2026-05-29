@@ -72,4 +72,5 @@ vim.g.have_nerd_font = true
 
 vim.cmd([[ colorscheme retrobox ]])
 
+vim.diagnostic.config({ virtual_text = false, underline = false, signs = false })
 -- vim: ts=2 sts=2 sw=2 et
