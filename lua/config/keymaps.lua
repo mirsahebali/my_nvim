@@ -91,6 +91,9 @@ vim.keymap.set("n", "<M-,>", "<C-w><", { desc = "Resize window right" })
 vim.keymap.set("n", "j", "gj", { desc = "Relatively go down" })
 vim.keymap.set("n", "k", "gk", { desc = "Relatively go up" })
 
+vim.keymap.set("n", "<M-p>", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
+vim.keymap.set("t", "<M-p>", "<C-\\><C-n>:ToggleTerm<CR>", { desc = "Toggle terminal" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
