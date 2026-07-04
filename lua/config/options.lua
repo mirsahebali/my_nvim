@@ -64,13 +64,14 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 15
 
 vim.o.termguicolors = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.cmd([[ colorscheme retrobox ]])
+vim.cmd([[ colorscheme catppuccin ]])
+vim.cmd([[ highlight Normal guibg=#11111b ctermbg=None ]])
 
 vim.diagnostic.config({ virtual_text = false, underline = false, signs = false })
 -- vim: ts=2 sts=2 sw=2 et
