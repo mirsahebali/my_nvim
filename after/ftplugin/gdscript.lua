@@ -9,7 +9,7 @@ local cmd = vim.lsp.rpc.connect("/tmp/godot.pipe")
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = "*.gd",
-  command = ":LspStart gdscript",
+  command = ":lsp enable gdscript",
 })
 
 ---@type vim.lsp.Config

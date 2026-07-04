@@ -70,7 +70,8 @@ vim.o.termguicolors = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.cmd([[ colorscheme retrobox ]])
+vim.cmd([[ colorscheme catppuccin ]])
+vim.cmd([[ highlight Normal guibg=#11111b ctermbg=none ]])
 
 vim.diagnostic.config({ virtual_text = false, underline = false, signs = false })
 -- vim: ts=2 sts=2 sw=2 et
