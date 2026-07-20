@@ -94,6 +94,14 @@ vim.keymap.set("n", "k", "gk", { desc = "Relatively go up" })
 vim.keymap.set("n", "<M-p>", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
 vim.keymap.set("t", "<M-p>", "<C-\\><C-n>:ToggleTerm<CR>", { desc = "Toggle terminal" })
 
+vim.keymap.set("n", "<leader>sl", function()
+  require("persistence").load()
+end, { desc = "Load last state" })
+
+vim.keymap.set("n", "<leader>te", ":tabnew<cr>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tp", ":tabprev<cr>", { desc = "Move to previous tab" })
+vim.keymap.set("n", "<leader>tn", ":tabnext<cr>", { desc = "Move to next tab" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
