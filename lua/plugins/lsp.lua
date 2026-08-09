@@ -324,7 +324,7 @@ return {
           vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
         end
 
-        nmap("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
+        nmap("<leader>cr", vim.lsp.buf.rename, "[C]hange [R]eference")
         nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
         nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
