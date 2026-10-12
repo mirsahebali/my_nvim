@@ -60,6 +60,9 @@ vim.keymap.set("n", "<leader><leader>c", function()
   require("oil").open_float(vim.env.HOME .. "/.config/nvim")
 end, { desc = "Open neovim config" })
 
+-- Oil.nvim Keymaps
+vim.keymap.set("n", "<leader>fm", "<cmd> lua MiniFiles.open()<cr>", { desc = "Open File Tree" })
+
 -- Buffer mappings
 vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = "Previous buffer" })
